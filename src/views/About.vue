@@ -7,6 +7,7 @@
 
 <script>
   import Nav from "../components/Nav"
+
   export default {
     name: "About",
     components: {Nav}
