@@ -30,7 +30,7 @@
   }
   .el-container {
     background-color: #e1e1e1;
-    height: 800px;
+    height: 100%;
     margin: 0;
   }
 </style>
