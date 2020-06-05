@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 import Home from "../views/Home"
 import About from "../views/About"
 import NotFound from "../views/NotFound"
+import Topic from "../views/Topic"
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "/home",
     component: Home
+  },
+  {
+    path: '/topic/:id',
+    component: Topic
   },
   {
     path: "/about",

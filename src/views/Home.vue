@@ -20,7 +20,9 @@
             {{topic | tabFormatter}}
           </span>
             <!--帖子标题-->
-            <span class="title">{{topic.title}}</span>
+            <router-link :to="{path:`/topic/${topic.id}`, params:{id:topic.id}}">
+              <span class="title">{{topic.title}}</span>
+            </router-link>
             <!--最終回复时间-->
             <span class="last_reply">
             {{topic.last_reply_at | formatDate}}
@@ -82,7 +84,14 @@
     color: #303133;
     transition: .3s;
     border-radius: 4px;
-    padding: 16px;
+    line-height: 2em;
+  }
+
+  @media (max-width: 800px) {
+    ul {
+      width: 90%;
+      border-radius: 0;
+    }
   }
 
   @media (max-width: 600px) {
@@ -95,7 +104,7 @@
       padding: 0;
     }
 
-    .main > ul > li > .title {
+    .main > ul > li > a {
       max-width: 100%;
     }
 
@@ -115,7 +124,6 @@
   ul > li:hover {
     background-color: #f5f5f5;
   }
-
 
   ul > li > img {
     width: 30px;
@@ -142,23 +150,25 @@
 
   .tag {
     white-space: nowrap;
+    font-size: 14px;
     margin: 8px 8px;
   }
 
-  ul > li > .title {
+  ul > li > a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-break: break-all;
     font-size: 16px;
-    line-height: 30px;
-    color: #888888;
-    max-width: 70%;
+    line-height: 1.5;
+    text-align: center;
+    color: #333333;
+    max-width: 60%;
   }
 
   ul > li > .last_reply {
     margin-left: auto;
     white-space: nowrap;
+    font-size: 12px;
   }
-
 </style>
