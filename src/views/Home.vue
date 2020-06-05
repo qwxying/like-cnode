@@ -1,18 +1,26 @@
 <template>
-  <div>
-    <Nav/>
-    <h1>这是首页</h1>
-  </div>
+  <Layout>
+    <el-main>
+      <h1>首页</h1>
+    </el-main>
+    <el-aside width="25%">
+      <h1>首页侧边栏</h1>
+    </el-aside>
+  </Layout>
 </template>
 
 <script>
-  import Nav from "../components/Nav"
+  import Layout from "../components/Layout"
   export default {
     name: "Home",
-    components: {Nav}
+    components: {Layout},
   }
 </script>
 
 <style scoped>
+
+  .el-aside {
+    border: 1px solid red;;
+  }
 
 </style>

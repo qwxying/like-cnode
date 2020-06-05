@@ -19,7 +19,7 @@
   a {
     text-decoration: none;
     text-shadow: none;
-    color: #888888;
+    color: #ccc;
     font-size: 14px;
   }
 
