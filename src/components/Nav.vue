@@ -45,4 +45,8 @@
   li {
     padding: 8px;
   }
+
+  li > a {
+    white-space: nowrap;
+  }
 </style>

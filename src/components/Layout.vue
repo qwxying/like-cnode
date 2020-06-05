@@ -5,7 +5,7 @@
         <Nav/>
       </el-header>
       <el-container>
-      <slot/>
+        <slot/>
       </el-container>
       <el-footer height="auto">
         <Footer/>
@@ -17,6 +17,7 @@
 <script>
   import Footer from "./Footer"
   import Nav from "./Nav"
+
   export default {
     name: "Layout",
     components: {Footer, Nav}
@@ -28,6 +29,7 @@
     padding: 0;
     background-color: #fff;
   }
+
   .el-container {
     background-color: #e1e1e1;
     height: 100%;
