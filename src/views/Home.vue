@@ -1,14 +1,14 @@
 <template>
-  <Layout>
-    <el-main>
-      <Loading v-if="loading"/>
-      <ul v-else>
+  <div>
+  <Loading v-if="loading"/>
+  <Layout v-else>
+    <el-main class="main">
+      <ul >
         <li v-for="(topic,index) in topics" :key="index">
           <!--头像-->
           <img :src="topic.author.avatar_url" alt="avatar">
           <!--回复/浏览-->
           <div class="reply_vist">
-
           <span class="reply_count">{{topic.reply_count}}</span>
           <span class="visit_count">/{{topic.visit_count}}</span>
           </div>
@@ -25,21 +25,11 @@
           <span class="last_reply">
             {{topic.last_reply_at | formatDate}}
           </span>
-
         </li>
-
       </ul>
     </el-main>
-    <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <span>卡片名称</span>
-        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
-      </div>
-      <div v-for="o in 4" :key="o" class="text item">
-        {{'列表内容 ' + o }}
-      </div>
-    </el-card>
   </Layout>
+  </div>
 </template>
 
 <script>
@@ -80,13 +70,6 @@
 </script>
 
 <style scoped>
-
-  .el-main {
-    border: 1px solid red;
-    overflow: auto;
-
-  }
-  /*.el-main::-webkit-scrollbar { width: 0 !important }*/
   ul {
     margin: 0 auto;
     background-color: #fff;
@@ -100,6 +83,14 @@
     transition: .3s;
     border-radius: 4px;
     padding: 16px;
+  }
+  @media (max-width: 600px) {
+    ul{
+      width: 100%;
+      border-radius: 0;
+    }
+    .main{
+      padding: 0;}
   }
 
   ul > li {
@@ -138,14 +129,11 @@
   }
 
   .tag {
-    border: 1px solid red;
     white-space: nowrap;
     margin:  8px 8px;
   }
 
   ul > li > .title {
-    border: 1px solid red;
-
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
