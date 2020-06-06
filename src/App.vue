@@ -19,7 +19,7 @@
         background-color:#f5f5f5;
         border-radius: 12px 0 0 12px;
         padding: 12px 0 12px 5px;"
-        target=".content .backtop">
+        target=".content .back_top">
         回到顶部
       </el-backtop>
     </div>
