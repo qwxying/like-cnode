@@ -55,7 +55,7 @@
         </el-card>
       </el-main>
       <el-aside width="25%">
-        <h1>666</h1>
+        侧边栏
       </el-aside>
     </Layout>
   </div>
