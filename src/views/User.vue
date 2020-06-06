@@ -73,10 +73,11 @@
 </script>
 
 <style scoped>
-  .el-main{
+  .el-main {
     max-width: 60%;
     margin: 0 auto;
   }
+
   .el-card {
     margin-bottom: 16px;
   }

@@ -11,8 +11,8 @@
 </script>
 
 <style scoped>
-img{
-  margin-top: 300px;
-  border-radius: 50%;
-}
+  img {
+    margin-top: 300px;
+    border-radius: 50%;
+  }
 </style>

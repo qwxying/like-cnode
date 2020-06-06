@@ -11,6 +11,7 @@
 
 <script>
   import Layout from "../components/Layout"
+
   export default {
     name: "About",
     components: {Layout}
@@ -18,7 +19,4 @@
 </script>
 
 <style scoped>
-  .el-aside {
-    border: 1px solid red;;
-  }
 </style>
