@@ -32,10 +32,6 @@
           </div>
         </el-card>
       </el-main>
-      <el-aside>
-        侧边栏
-      </el-aside>
-
     </Layout>
   </div>
 </template>
@@ -77,6 +73,10 @@
 </script>
 
 <style scoped>
+  .el-main{
+    max-width: 60%;
+    margin: 0 auto;
+  }
   .el-card {
     margin-bottom: 16px;
   }
