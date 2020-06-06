@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownTarget -->
 <template>
   <div>
     <Loading v-if="loading"/>
@@ -46,15 +47,16 @@
     data() {
       return {
         loading: false,
+        user_url: "https://cnodejs.org/api/v1/user/",
         user: {}
       }
     },
     methods: {
       getData() {
-        this.$http.get(`https://cnodejs.org/api/v1/user/${this.$route.params.name}`)
+        this.$http
+          .get(`${this.user_url}${this.$route.params.name}`)
           .then(res => {
               if (res.data.success) {
-                console.log(res)
                 this.loading = false
                 this.user = res.data.data
               }

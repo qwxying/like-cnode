@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownTarget -->
 <template>
   <div>
     <!--        作者基本信息-->
@@ -32,15 +33,18 @@
     data() {
       return {
         login_name: "",
+        user_url: "https://cnodejs.org/api/v1/user/",
         author_info: {}
       }
     },
     methods: {
       getAuthorInfo() {
-        this.$http.get(`https://cnodejs.org/api/v1/user/${this.login_name}`).then(res => {
-            this.author_info = res.data.data
-          }
-        ).catch(err => {
+        this.$http
+          .get(`${this.user_url}${this.login_name}`)
+          .then(res => {
+              this.author_info = res.data.data
+            }
+          ).catch(err => {
           console.log(err)
         })
       }

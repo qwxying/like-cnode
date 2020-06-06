@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownTarget -->
 <template>
   <div>
     <Loading v-if="loading"/>
@@ -8,7 +9,7 @@
             <!--头像-->
             <img :src="topic.author.avatar_url" alt=""/>
             <!--回复/浏览-->
-            <div class="reply_vist">
+            <div class="reply_visit">
               <span class="reply_count">{{topic.reply_count}}</span>
               <span class="visit_count">/{{topic.visit_count}}</span>
             </div>
@@ -49,12 +50,14 @@
     },
     methods: {
       getData() {
-        this.$http.get("https://cnodejs.org/api/v1/topics", {
-          params: {
-            page: 1,
-            limit: 20
-          }
-        })
+        this.$http
+          .get(
+            "https://cnodejs.org/api/v1/topics",
+            {
+              params: {
+                page: 1, limit: 40
+              }
+            })
           .then(res => {
             this.loading = false
             this.topics = res.data.data
@@ -108,7 +111,7 @@
       max-width: 100%;
     }
 
-    .reply_vist, .tag, .last_reply {
+    .reply_visit, .tag, .last_reply {
       display: none;
     }
   }
@@ -132,7 +135,7 @@
     border-radius: 3px;
   }
 
-  ul > li > .reply_vist {
+  ul > li > .reply_visit {
     width: 70px;
   }
 

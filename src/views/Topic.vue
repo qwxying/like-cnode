@@ -29,17 +29,18 @@
     data() {
       return {
         loading: false,
-        topic: {}
+        topic: {},
+        topic_url: "https://cnodejs.org/api/v1/topic/"
       }
     },
     methods: {
       getData() {
-        this.$http.get(`https://cnodejs.org/api/v1/topic/${this.$route.params.id}`)
+        this.$http
+          .get(`${this.topic_url}${this.$route.params.id}`)
           .then(res => {
               if (res.data.success) {
                 this.loading = false
                 this.topic = res.data.data
-                console.log(this.topic.author.avatar_url)
               }
             }
           )
