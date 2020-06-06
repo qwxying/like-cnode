@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loading v-if="this.loading"/>
+    <Loading v-if="loading"/>
     <Layout v-else>
       <el-main class="main">
         <!--        帖子内容-->
@@ -26,7 +26,16 @@
             <span>{{topic.reply_count}} 回复</span>
           </div>
           <div v-for="(reply,index) in topic.replies" :key="index" class="reply">
-            <img :src="reply.author.avatar_url" alt="pic">
+            <router-link :to="{
+              path:`/user/${reply.author.loginname}`,
+               params:{
+                name:reply.author.loginname
+              }
+            }">
+
+              <img :src="reply.author.avatar_url" alt="pic">
+            </router-link>
+
             <span>
             {{reply.author.loginname }}
             </span>
@@ -36,6 +45,8 @@
             <span>
               {{reply.create_at|formatDate}}
             </span>
+            <span v-if="reply.ups.length>0">👍{{reply.ups.length}}</span>
+            <span v-else></span>
             <p v-html="reply.content">
 
             </p>
@@ -103,8 +114,8 @@
   .markdown-body {
     box-sizing: border-box;
     width: 100%;
-    margin: 0 auto;
-    padding:0 45px;
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
   }
 
   @media (max-width: 767px) {
@@ -133,20 +144,20 @@
     list-style: disc outside none;
   }
 
-  .replies{
-    border: none!important;
+  .replies {
+    border: none !important;
   }
 
-  .reply{
-   text-align: start;
+  .reply {
+    text-align: start;
   }
 
-  .reply img{
+  .reply img {
     height: 30px;
     width: 30px;
   }
 
-  .el-card__header{
+  .el-card__header {
     background-color: #e1e1e1;
   }
 </style>

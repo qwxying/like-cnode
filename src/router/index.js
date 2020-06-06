@@ -4,6 +4,7 @@ import Home from "../views/Home"
 import About from "../views/About"
 import NotFound from "../views/NotFound"
 import Topic from "../views/Topic"
+import User from "../views/User"
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/topic/:id',
     component: Topic
+  },
+  {
+    path: '/user/:name',
+    component: User
   },
   {
     path: "/about",

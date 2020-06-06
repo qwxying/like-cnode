@@ -44,6 +44,7 @@
 
   li {
     padding: 8px;
+    list-style: none;
   }
 
   li > a {
