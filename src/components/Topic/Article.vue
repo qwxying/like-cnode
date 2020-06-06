@@ -49,20 +49,13 @@
   }
 
   @media (max-width: 767px) {
-    .main, .markdown-body {
-      padding: 0 !important;
-    }
-
     .topic_info {
       display: block;
     }
 
     .topic_info > li {
-      list-style: none;
-    }
-
-    .el-aside {
-      display: none;
+      list-style-type: none;
+      margin-left: 0;
     }
   }
 </style>

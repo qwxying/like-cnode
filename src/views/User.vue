@@ -76,8 +76,15 @@
 
 <style scoped>
   .el-main {
-    max-width: 60%;
+    max-width: 70%;
     margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .el-main {
+      max-width: 100%;
+      padding: 0;
+    }
   }
 
   .el-card {

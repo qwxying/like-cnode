@@ -1,9 +1,10 @@
+<!--suppress HtmlUnknownTarget -->
 <template>
   <el-card class="replies">
     <div slot="header" class="reply_title">
       <span>{{topic.reply_count}} 回复</span>
     </div>
-    <div v-for="(reply,index) in topic.replies" :key="index" class="reply">
+    <div v-for="(reply,index) in topic.replies" :key="index" class="reply markdown-body">
       <router-link :to="{
               path:`/user/${reply.author.loginname}`,
                params:{
@@ -28,7 +29,6 @@
   export default {
     name: "Reply",
     props: ["topic"]
-
   }
 </script>
 
@@ -57,23 +57,5 @@
 
   .markdown-text > ul, ol, li {
     list-style: disc outside none;
-  }
-
-  @media (max-width: 767px) {
-    .main, .markdown-body {
-      padding: 0 !important;
-    }
-
-    .topic_info {
-      display: block;
-    }
-
-    .topic_info > li {
-      list-style: none;
-    }
-
-    .el-aside {
-      display: none;
-    }
   }
 </style>

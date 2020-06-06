@@ -33,6 +33,7 @@
       </el-main>
     </Layout>
   </div>
+
 </template>
 
 <script>
@@ -111,7 +112,7 @@
       max-width: 100%;
     }
 
-    .reply_visit, .tag, .last_reply {
+    .reply_visit, .last_reply {
       display: none;
     }
   }

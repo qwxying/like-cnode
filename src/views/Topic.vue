@@ -61,6 +61,10 @@
     text-align: start;
   }
 
+  .el-container > .main {
+    padding: 20px 5%;
+  }
+
   .aside {
     padding: 20px;
   }
@@ -68,4 +72,18 @@
   .aside * {
     text-align: start;
   }
+
+  @media (max-width: 600px) {
+    .main {
+      padding: 0 !important;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .aside {
+      display: none;
+    }
+  }
+
+
 </style>
