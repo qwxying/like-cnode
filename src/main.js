@@ -36,17 +36,17 @@ Vue.filter("formatDate", (str) => {
     } else if ((time / 1000 < 30)) {
       return "刚刚"
     } else if (time / 1000 < 60) {
-      return Math.trunc((time / 1000)) + "秒前"
+      return Math.trunc((time / 1000)) + " 秒前"
     } else if ((time / 60000) < 60) {
-      return Math.trunc((time / 60000)) + "分钟前"
+      return Math.trunc((time / 60000)) + " 分钟前"
     } else if ((time / 3600000) < 24) {
-      return Math.trunc(time / 3600000) + "小时前"
+      return Math.trunc(time / 3600000) + " 小时前"
     } else if ((time / 86400000) < 31) {
-      return Math.trunc(time / 86400000) + "天前"
+      return Math.trunc(time / 86400000) + " 天前"
     } else if ((time / 2592000000) < 12) {
-      return Math.trunc(time / 2592000000) + "月前"
+      return Math.trunc(time / 2592000000) + " 月前"
     } else {
-      return Math.trunc(time / 31536000000) + "年前"
+      return Math.trunc(time / 31536000000) + " 年前"
     }
   }
 )
