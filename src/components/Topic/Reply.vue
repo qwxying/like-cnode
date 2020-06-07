@@ -5,15 +5,20 @@
       <span>{{topic.reply_count}} 回复</span>
     </div>
     <div v-for="(reply,index) in topic.replies" :key="index" class="reply markdown-body">
-      <router-link :to="{path:`/user/${reply.author.loginname}`}">
-        <img :src="reply.author.avatar_url" alt="pic">
-      </router-link>
-      <span>{{reply.author.loginname }}</span>
-      <span>第{{index+1}}楼</span>
-      <span>{{reply.create_at|formatDate}}</span>
-      <span v-if="reply.ups.length>0">👍{{reply.ups.length}}</span>
-      <span v-else></span>
-      <p v-html="reply.content"></p>
+      <div class="reply_info">
+        <router-link :to="{path:`/user/${reply.author.loginname}`}">
+          <img :src="reply.author.avatar_url" alt="">
+        </router-link>
+        <router-link :to="{path:`/user/${reply.author.loginname}`}">
+          <span>{{reply.author.loginname }}</span>
+        </router-link>
+        <span></span>
+        <span class="reply_time">{{index+1}}楼•{{reply.create_at|formatDate}}</span>
+        <span v-if="reply.ups.length>0">👍{{reply.ups.length}}</span>
+        <span v-else></span>
+      </div>
+      <p class="reply_content" v-html="reply.content"></p>
+      <!--      todo   回复内容里面的@作者，应该把html里的内容重定向到https://cnodejs.org/api/v1/user/:username-->
     </div>
   </el-card>
 </template>
@@ -28,17 +33,39 @@
 </script>
 
 <style scoped>
-  .replies {
-    border: none !important;
+  .reply_info {
+    display: flex;
+    align-items: start;
   }
 
-  .reply {
-    text-align: start;
+  .reply_info > * {
+    margin-right: 8px;
   }
 
-  .reply img {
+  .reply > .reply_info > a {
+    font-weight: bold;
+    color: #666;
+  }
+
+  .reply > .reply_info > a:hover {
+    text-decoration-line: none;
+    color: #385f8a;
+  }
+
+  .reply > .reply_info > a > img {
     height: 30px;
     width: 30px;
+    border-radius: 3px;
+  }
+
+  .reply_time {
+    color: #005580;
+    font-size: 11px;
+    padding: 2px;
+  }
+
+  .reply > .reply_content {
+    padding-left: 50px;
   }
 
   .markdown-body {
