@@ -49,6 +49,9 @@
           })
       }
     },
+    watch: {
+      $route: "getData"
+    },
     beforeMount() {
       this.loading = true
       this.getData()

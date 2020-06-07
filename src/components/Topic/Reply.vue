@@ -33,6 +33,10 @@
 </script>
 
 <style scoped>
+  /deep/ .el-card__header {
+    background-color: #f6f6f6;
+  }
+
   .reply_info {
     display: flex;
     align-items: start;
