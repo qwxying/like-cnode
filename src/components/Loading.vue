@@ -12,7 +12,7 @@
 
 <style scoped>
   img {
-    margin-top: 400px;
+    margin-top: 250px;
     border-radius: 50%;
   }
 </style>

@@ -7,7 +7,10 @@
         <ul>
           <li v-for="(topic,index) in topics" :key="index">
             <!--头像-->
-            <img :src="topic.author.avatar_url" alt=""/>
+            <router-link :to="{path:`/user/${topic.author.loginname}`}">
+              <img :src="topic.author.avatar_url" alt=""/>
+            </router-link>
+
             <!--回复/浏览-->
             <div class="reply_visit">
               <span class="reply_count">{{topic.reply_count}}</span>
@@ -15,9 +18,8 @@
             </div>
             <!--帖子的分类-->
             <span class="tag" :class="[{
-            tag_good:(topic.good  === true),
-            tag_top:(topic.top  === true),
-            tag_normal:(topic.good  !== true && topic.top  !== true)}]">
+            good:(topic.good  === true),
+            top:(topic.top  === true)}]">
             {{topic | tabFormatter}}
           </span>
             <!--帖子标题-->
@@ -129,7 +131,7 @@
     background-color: #f5f5f5;
   }
 
-  ul > li > img {
+  ul > li img {
     width: 30px;
     height: 30px;
     margin: 4px;
@@ -138,6 +140,7 @@
 
   ul > li > .reply_visit {
     width: 70px;
+    text-align: center;
   }
 
   ul > li .reply_count {
@@ -149,13 +152,22 @@
   ul > li .visit_count {
     font-size: 10px;
     color: #b4b4b4;
-    text-align: center;
   }
 
   .tag {
     white-space: nowrap;
-    font-size: 14px;
-    margin: 8px 8px;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    line-height: 1.5;
+    margin: 0 4px;
+    background: #e5e5e5;
+    color: #999;
+  }
+
+  .tag.good, .tag.top {
+    background-color: #80bd01;
+    color: #ffffff;
   }
 
   ul > li > a {

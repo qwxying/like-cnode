@@ -8,7 +8,7 @@
         style="
         box-sizing: content-box;
         right: 0;
-        bottom: 80px;
+        bottom: 200px;
         width: 24px;
         height: 80px;
         line-height: 20px;

@@ -5,12 +5,7 @@
       <span>{{topic.reply_count}} 回复</span>
     </div>
     <div v-for="(reply,index) in topic.replies" :key="index" class="reply markdown-body">
-      <router-link :to="{
-              path:`/user/${reply.author.loginname}`,
-               params:{
-                name:reply.author.loginname
-              }
-            }">
+      <router-link :to="{path:`/user/${reply.author.loginname}`}">
         <img :src="reply.author.avatar_url" alt="pic">
       </router-link>
       <span>{{reply.author.loginname }}</span>
