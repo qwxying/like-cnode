@@ -4,11 +4,11 @@
 <Loading v-if="loading"/>
     <Layout v-else>
       <el-main class="main">
-        <ul>
+        <ul class="back_top">
           <li v-for="(topic,index) in topics" :key="index">
             <!--头像-->
             <router-link :to="{path:`/user/${topic.author.loginname}`}">
-              <img :src="topic.author.avatar_url" alt=""/>
+              <img :src="topic.author.avatar_url" alt="p"/>
             </router-link>
 
             <!--回复/浏览-->
@@ -32,6 +32,7 @@
           </span>
           </li>
         </ul>
+        <el-backtop target=".main .back_top"></el-backtop>
       </el-main>
     </Layout>
 
@@ -58,7 +59,7 @@
             "https://cnodejs.org/api/v1/topics",
             {
               params: {
-                page: 1, limit: 40
+                page: 4, limit: 40
               }
             })
           .then(res => {

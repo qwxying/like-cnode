@@ -7,7 +7,7 @@
       <el-container class="main">
         <slot/>
       </el-container>
-      <el-footer class="footer" height="auto">
+      <el-footer class="footer" height="160px">
         <Footer/>
       </el-footer>
     </el-container>
@@ -30,10 +30,6 @@
     display: flex;
   }
 
-  .footer {
-    border: 1px solid red;
-  }
-
   .el-header, .el-footer {
     padding: 0;
     background-color: #fff;
@@ -46,4 +42,10 @@
     flex-grow: 1;
   }
 
+  @media (max-width: 767px) {
+    .footer {
+      display: none;
+    }
+
+  }
 </style>

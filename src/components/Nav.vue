@@ -49,5 +49,7 @@
 
   li > a {
     white-space: nowrap;
+    color: #ccc;
+    font-size: 14px;
   }
 </style>

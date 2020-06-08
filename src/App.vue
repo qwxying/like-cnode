@@ -41,8 +41,7 @@
   a {
     text-decoration: none;
     text-shadow: none;
-    color: #ccc;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #app {

@@ -58,6 +58,10 @@
 </script>
 
 <style>
+  .el-main {
+    margin-bottom: 20px;
+  }
+
   .main * {
     text-align: start;
   }
