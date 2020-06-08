@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <el-container>
-      <el-header height="auto">
+  <div class="wrapper">
+    <el-container class="container">
+      <el-header class="header" height="auto">
         <Nav/>
       </el-header>
-      <el-container>
+      <el-container class="main">
         <slot/>
       </el-container>
-      <el-footer height="auto">
+      <el-footer class="footer" height="auto">
         <Footer/>
       </el-footer>
     </el-container>
@@ -25,6 +25,15 @@
 </script>
 
 <style scoped>
+  .container, .wrapper {
+    height: 100%;
+    display: flex;
+  }
+
+  .footer {
+    border: 1px solid red;
+  }
+
   .el-header, .el-footer {
     padding: 0;
     background-color: #fff;
@@ -34,5 +43,7 @@
     background-color: #e1e1e1;
     height: 100%;
     margin: 0;
+    flex-grow: 1;
   }
+
 </style>

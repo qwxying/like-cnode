@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <Loading v-if="loading"/>
-    <Layout v-else>
-      <el-main class="main">
-        <!--        帖子内容-->
-        <Article :topic="topic"/>
-        <!--        回复内容-->
-        <Reply :topic="topic"/>
-      </el-main>
-      <el-aside class="aside" width="25%">
-        <!--        侧边栏-->
-        <Aside :topic="topic"/>
-      </el-aside>
-    </Layout>
-  </div>
+  <Loading v-if="loading"/>
+  <Layout v-else>
+    <el-main class="main">
+      <!--        帖子内容-->
+      <Article :topic="topic"/>
+      <!--        回复内容-->
+      <Reply :topic="topic"/>
+    </el-main>
+    <el-aside class="aside" width="25%">
+      <!--        侧边栏-->
+      <Aside :topic="topic"/>
+    </el-aside>
+  </Layout>
 </template>
 
 <script>

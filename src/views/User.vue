@@ -1,52 +1,50 @@
 <!--suppress HtmlUnknownTarget -->
 <template>
-  <div>
-    <Loading v-if="loading"/>
-    <Layout v-else>
-      <el-main>
-        <!--        用户基本信息-->
-        <el-card>
-          <a slot="header" class="to_home" href="/">主页/</a>
-          <div class="user_info">
-            <img class="own_img" :src="user.avatar_url" alt="">
-            <span>{{user.loginname}}</span>
-          </div>
-          <p class="score">{{user.score}} 积分</p>
-          <p class="registration_time">注册时间：{{user.create_at|formatDate}}</p>
-        </el-card>
-        <!--        用户近期文章-->
-        <el-card>
-          <div slot="header">用户近期文章</div>
-          <ul>
-            <li v-for="(recent_topic,index) in user.recent_topics.slice(0,5)" :key="index">
-              <img :src="recent_topic.author.avatar_url" alt="">
-              <router-link :to="{path:`/topic/${recent_topic.id}`}">
-                {{recent_topic.title}}
-              </router-link>
-              <span class="reply_time">{{recent_topic.last_reply_at|formatDate}}</span>
-            </li>
-          </ul>
-        </el-card>
-        <!--        用户近期回复-->
-        <el-card>
-          <div slot="header">用户回复的文章</div>
-          <ul>
-            <li class="reply" v-for="(recent_reply,index) in user.recent_replies.slice(0,5)" :key="index">
-              <router-link class="img" :to="{path:`/user/${recent_reply.author.loginname}`}">
-                <img :src="recent_reply.author.avatar_url" alt="">
-              </router-link>
-              <router-link :to="{path:`/topic/${recent_reply.id}`}">
-                {{recent_reply.title}}
-              </router-link>
-              <span class="reply_time">
+  <Loading v-if="loading"/>
+  <Layout v-else>
+    <el-main>
+      <!--        用户基本信息-->
+      <el-card>
+        <a slot="header" class="to_home" href="/">主页/</a>
+        <div class="user_info">
+          <img class="own_img" :src="user.avatar_url" alt="">
+          <span>{{user.loginname}}</span>
+        </div>
+        <p class="score">{{user.score}} 积分</p>
+        <p class="registration_time">注册时间：{{user.create_at|formatDate}}</p>
+      </el-card>
+      <!--        用户近期文章-->
+      <el-card>
+        <div slot="header">用户近期文章</div>
+        <ul>
+          <li v-for="(recent_topic,index) in user.recent_topics.slice(0,5)" :key="index">
+            <img :src="recent_topic.author.avatar_url" alt="">
+            <router-link :to="{path:`/topic/${recent_topic.id}`}">
+              {{recent_topic.title}}
+            </router-link>
+            <span class="reply_time">{{recent_topic.last_reply_at|formatDate}}</span>
+          </li>
+        </ul>
+      </el-card>
+      <!--        用户近期回复-->
+      <el-card>
+        <div slot="header">用户回复的文章</div>
+        <ul>
+          <li class="reply" v-for="(recent_reply,index) in user.recent_replies.slice(0,5)" :key="index">
+            <router-link class="img" :to="{path:`/user/${recent_reply.author.loginname}`}">
+              <img :src="recent_reply.author.avatar_url" alt="">
+            </router-link>
+            <router-link :to="{path:`/topic/${recent_reply.id}`}">
+              {{recent_reply.title}}
+            </router-link>
+            <span class="reply_time">
               {{recent_reply.last_reply_at|formatDate}}
             </span>
-            </li>
-          </ul>
-        </el-card>
-      </el-main>
-    </Layout>
-  </div>
+          </li>
+        </ul>
+      </el-card>
+    </el-main>
+  </Layout>
 </template>
 
 <script>

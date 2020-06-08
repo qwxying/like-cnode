@@ -1,7 +1,7 @@
 <!--suppress HtmlUnknownTarget -->
 <template>
-  <div>
-    <Loading v-if="loading"/>
+
+<Loading v-if="loading"/>
     <Layout v-else>
       <el-main class="main">
         <ul>
@@ -34,7 +34,7 @@
         </ul>
       </el-main>
     </Layout>
-  </div>
+
 
 </template>
 
