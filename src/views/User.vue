@@ -7,7 +7,7 @@
       <el-card>
         <a slot="header" class="to_home" href="/">主页/</a>
         <div class="user_info">
-          <img class="own_img" :src="user.avatar_url" alt="">
+          <img class="own_img" v-lazy="user.avatar_url" alt="">
           <span>{{user.loginname}}</span>
         </div>
         <p class="score">{{user.score}} 积分</p>
@@ -18,7 +18,7 @@
         <div slot="header">用户近期文章</div>
         <ul>
           <li v-for="(recent_topic,index) in user.recent_topics.slice(0,5)" :key="index">
-            <img :src="recent_topic.author.avatar_url" alt="">
+            <img v-lazy="recent_topic.author.avatar_url" alt="">
             <router-link :to="{path:`/topic/${recent_topic.id}`}">
               {{recent_topic.title}}
             </router-link>
@@ -32,7 +32,7 @@
         <ul>
           <li class="reply" v-for="(recent_reply,index) in user.recent_replies.slice(0,5)" :key="index">
             <router-link class="img" :to="{path:`/user/${recent_reply.author.loginname}`}">
-              <img :src="recent_reply.author.avatar_url" alt="">
+              <img v-lazy="recent_reply.author.avatar_url" alt="">
             </router-link>
             <router-link :to="{path:`/topic/${recent_reply.id}`}">
               {{recent_reply.title}}

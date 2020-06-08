@@ -7,7 +7,7 @@
     <div v-for="(reply,index) in topic.replies" :key="index" class="reply markdown-body">
       <div class="reply_info">
         <router-link :to="{path:`/user/${reply.author.loginname}`}">
-          <img :src="reply.author.avatar_url" alt="">
+          <img v-lazy="reply.author.avatar_url" alt="">
         </router-link>
         <router-link :to="{path:`/user/${reply.author.loginname}`}">
           <span>{{reply.author.loginname }}</span>

@@ -1,16 +1,16 @@
 <!--suppress HtmlUnknownTarget -->
 <template>
-
 <Loading v-if="loading"/>
     <Layout v-else>
       <el-main class="main">
         <ul class="back_top">
           <li v-for="(topic,index) in topics" :key="index">
             <!--头像-->
-            <router-link :to="{path:`/user/${topic.author.loginname}`}">
-              <img :src="topic.author.avatar_url" alt="p"/>
-            </router-link>
-
+            <div style="height: 40px;">
+              <router-link :to="{path:`/user/${topic.author.loginname}`}">
+                <img v-lazy="topic.author.avatar_url" alt=""/>
+              </router-link>
+            </div>
             <!--回复/浏览-->
             <div class="reply_visit">
               <span class="reply_count">{{topic.reply_count}}</span>
@@ -35,8 +35,6 @@
         <el-backtop target=".main .back_top"></el-backtop>
       </el-main>
     </Layout>
-
-
 </template>
 
 <script>
@@ -59,7 +57,7 @@
             "https://cnodejs.org/api/v1/topics",
             {
               params: {
-                page: 4, limit: 40
+                page: 1, limit: 40
               }
             })
           .then(res => {

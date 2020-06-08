@@ -6,7 +6,7 @@
       <div slot="header">作者</div>
       <router-link :to="{path:`/user/${topic.author.loginname}`}">
         <div class="author_info">
-          <img class="author_img" :src="topic.author.avatar_url" alt="">
+          <img class="author_img" v-lazy="topic.author.avatar_url" alt="">
           <span class="author_name">{{topic.author.loginname}}</span>
         </div>
       </router-link>
@@ -17,7 +17,7 @@
     <el-card class="recent_topics">
       <div slot="header">作者其他文章</div>
       <ul>
-        <li v-for="(recent_topic,index) in author_info.recent_topics.slice(0,5)" :key="index">
+        <li v-for="(recent_topic,index) in author_info.recent_topics" :key="index">
           <router-link :to="{path:`/topic/${recent_topic.id}`}">
             {{recent_topic.title}}
           </router-link>
@@ -28,7 +28,7 @@
     <el-card class="recent_replies">
       <div slot="header">作者参与的话题</div>
       <ul>
-        <li v-for="(recent_reply,index) in author_info.recent_replies.slice(0,5)" :key="index">
+        <li v-for="(recent_reply,index) in author_info.recent_replies" :key="index">
           <router-link :to="{path:`/topic/${recent_reply.id}`}">
             {{recent_reply.title}}
           </router-link>
