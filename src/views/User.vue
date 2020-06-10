@@ -5,7 +5,8 @@
     <el-main>
       <!--        用户基本信息-->
       <el-card>
-        <a slot="header" class="to_home" href="/">主页/</a>
+        <router-link slot="header" class="to_home" to="/home">主页 /</router-link>
+        <!--        <a slot="header" class="to_home" href="/">主页/</a>-->
         <div class="user_info">
           <img class="own_img" v-lazy="user.avatar_url" alt="">
           <span>{{user.loginname}}</span>

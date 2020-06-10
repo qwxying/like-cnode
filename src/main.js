@@ -3,15 +3,15 @@ import App from "./App.vue"
 import router from "./router"
 import "./plugins/element.js"
 import Axios from "axios"
-import VueLazyload from "vue-lazyload"
+import VueLazyLoad from "vue-lazyload"
 
 Vue.prototype.$http = Axios
 Vue.config.productionTip = false
-Vue.use(VueLazyload, {
+Vue.use(VueLazyLoad, {
   error: require("./assets/error.png"),
   loading: require("./assets/loading.gif"),
   preLoad: 1,
-  attempt: 3
+  attempt: 2
 })
 
 new Vue({
